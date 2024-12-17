@@ -1,0 +1,50 @@
+.contact-section {
+    margin-top: 10px;
+}
+
+.contact-container{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: justify;
+
+
+}
+.contact-page {
+    width: 50%;
+    align-items: justify;
+
+}
+
+ .contact-title {
+    padding-left: 50px;
+    font-size: 3.2rem; 
+    width: 100%;
+    margin-top: 210px;
+    margin-bottom: 0.5rem;
+    box-sizing: border-box;
+  
+    padding-bottom: 8px;
+    border-bottom: 1px solid #fff;
+    letter-spacing: 1.5px;
+}
+
+
+@media (max-width: 768px) {
+    .form {
+        width: 100%;
+        min-width: 70%;
+    }
+    .contact-page {
+       display:none;
+        
+    }
+}
+
+
+
+.form{
+    width: 50%;
+}
+

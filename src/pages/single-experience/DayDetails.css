@@ -1,0 +1,41 @@
+.container-single-experience {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: #fdf2f2;
+    box-sizing: border-box;
+    width: 100%;
+    color: var(--color-3);
+}
+
+.title-single-experience {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+}
+
+.travel-day-dropdown {
+    width: 100%;
+}
+
+.travel-day-dropdown .day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.travel-day-dropdown .day-title {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.travel-day-dropdown .dropdown-content {
+    color: #666;
+    line-height: 1.6;
+    box-sizing: border-box;
+    padding: 1rem 0;
+}

@@ -1,0 +1,99 @@
+.bookings-content {
+    padding: 0rem;
+    box-sizing: border-box;
+}
+
+.bookings-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.color {
+    width: 40px;
+    height: 40px;
+    background-color: #FFD700; 
+    border-radius: 50%; 
+}
+
+.bookings-header h3 {
+    margin: 0;
+}
+
+.booking-item {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.booking-item h5 {
+    color: #666;
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.booking-item p {
+    margin: 0.3rem 0;
+}
+
+.actions button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #000;
+    color: black;
+}
+
+.actions button:hover {
+    background: #000;
+    color: white;
+}
+
+.orderRef h5,
+.orderDetails h5,
+.total h5,
+.status h5,
+.actions h5 {
+    min-height: 1.2rem;
+    font-weight: 800px;
+    letter-spacing: 1.5px;
+}
+
+.total, .status {
+    text-align: left;
+}
+
+.actions {
+    text-align: left;
+    border-radius: 0px;
+}
+
+.actions button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #000;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.actions button:hover:not(:disabled) {
+    background: #000;
+    color: white;
+}
+
+.actions button:disabled {
+    border-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+}

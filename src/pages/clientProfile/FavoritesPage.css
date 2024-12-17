@@ -1,0 +1,88 @@
+.favorites-page{
+    margin-top: 210px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: calc(100vh - 64px);
+    box-sizing: border-box;
+}
+
+
+.my-favorites{
+    width: 100%;
+    box-sizing: border-box;
+
+}
+.my-favorites-title {
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    padding-left: 50px;
+    letter-spacing: 1.5px;
+    box-sizing: border-box;
+  
+}
+
+.my-favorites-booking, .my-favorites-experiences {
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-bottom: 1px solid #fff;
+    padding-left: 50px;
+    margin:0px;
+    color: rgb(255, 255, 0);
+}
+
+.no-experiences, .no-bookings {
+    padding-left: 50px;;
+}
+
+
+
+.favorites-page .favorite-btn.active{
+    padding-right:0;
+    width: 50px;;
+}
+.favorites-container{
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+
+  }
+
+.experiences-favs, .booking-favs{
+    padding-left: 50px;
+}
+
+.favorites-booking-container {
+    width: 50%;
+    margin: 0;
+    border-right:  1px dotted rgba(128, 128, 128, 0.4);
+    height: 100vh;
+ 
+
+}
+
+.favorites-experiences-container {
+    width: 50%;
+    margin:0;
+    height: 100vh;
+
+}
+
+
+.favorites-booking-container div {
+    padding-bottom: 10px; 
+    margin-bottom: 20px; 
+    border-bottom:  1px dotted rgba(128, 128, 128, 0.4);
+}
+
+.favorites-experiences-container div {
+    padding-bottom: 10px; 
+    margin-bottom: 20px; 
+    border-bottom: 1px dotted #ccc; 
+}
+
+.favorites-container p {
+    font-size: 1rem;
+    color: #dfdddd;
+}

@@ -1,0 +1,52 @@
+.content-data {
+    padding: 0rem;
+    box-sizing: border-box;
+}
+
+.hello {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+}
+
+.color {
+    width: 40px;
+    height: 40px;
+    background-color: #FFD700; 
+    border-radius: 50%; 
+}
+
+.hello h3 {
+    margin: 0;
+}
+
+.data-info {
+    line-height: 1.6; 
+    box-sizing: border-box;
+
+}
+
+.data-info p {
+    margin: 0.5rem 0;
+}
+.content-data button{
+    color:#fff;
+    margin-top: 20px;
+    min-width: 40%;
+    width: 40%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    padding: 0.5rem 2rem;
+}
+
+.content-data button:hover {
+    background: #000;
+    color: white;
+}

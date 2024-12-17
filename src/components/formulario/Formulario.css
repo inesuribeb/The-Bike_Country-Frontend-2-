@@ -1,0 +1,140 @@
+.form{
+  margin-top: 70px;
+  margin-right:50px;
+}
+
+
+.input-section,
+.input-mesage {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.input-section{
+ gap: 20px;
+}
+
+.FirstName,
+.LastName,
+.Email,
+.Phone,
+.message {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.FirstName input,
+.LastName input,
+.Email input,
+.Phone input,
+.input-select-option select {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+.input-select-option select {
+  margin-bottom: 10px;
+}
+
+/* Contenedor de los radios */
+.radio-group {
+  gap: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* Espacio entre el botón y la etiqueta */
+}
+
+
+input[type="radio"] {
+  width: 15px; 
+  height: 15px;
+  margin-left: 0;
+  margin-right: 5px;
+  margin-bottom: 5px; 
+  accent-color: black; 
+}
+
+
+textarea {
+  width: 100%; 
+  min-height: 80px;
+  max-height: 200px; 
+  padding: 10px; 
+  font-size: 14px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-sizing: border-box; 
+  resize: vertical;
+}
+
+required {
+  color: red;
+}
+
+.message{
+  margin-top: 10px;
+}
+
+.send-button {
+  margin-top: 20px;
+  background-color:  #FEFF00; 
+  color: black;
+  width: 30%;
+  cursor: pointer;
+
+}
+
+.contact-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color:black;
+}
+
+.contact-modal-content {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color:black;
+}
+
+.contact-modal-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.contact-modal-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color:  #FEFF00; 
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-modal-content button:hover {
+  background-color:  #000000; 
+  color: #fff;
+}
+
