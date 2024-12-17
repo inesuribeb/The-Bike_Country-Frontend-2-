@@ -1,7 +1,9 @@
 import "./NavBar.css";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-
+import DragHandleIcon from "@mui/icons-material/DragHandle";
+import NavigateNextOutlinedIcon from "@mui/icons-material/NavigateNextOutlined";
+import Button from "../button/Button";
 import React, { useState, useEffect, useContext } from "react";
 import { PageContext } from "../../utils/js/context/PageContext.js";
 import { obtenerPacks } from "../../utils/js/apiCallController.js";
@@ -92,103 +94,197 @@ function NavBar({ changeBackgroundColor = false }) {
     const handleChangePage = (pageName) => {
         setPage(pageName);
     };
+
+    const [isActive, setIsActive] = useState(false);
+
+    const handleToggle = () => {
+        setIsActive((isActive) => !isActive);
+    };
     return (
-        <div className="navbar" style={navbarStyle}>
-            <nav>
-                <div className="left-bar">
-                    <a onClick={() => handleChangePage("home")}>
-                        <img src="/images/logotemporal.png" alt="Logo" />
-                    </a>
-                    <ul>
-                        <li>
-                            <a className={navbarClass}>About Us</a>
-                        </li>
-                        <li>
-                            <a className={navbarClass}>Basque Country</a>
-                        </li>
-                        <li>
-                            <a
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                                onClick={() => handleChangePage("experiences")}
-                                className={navbarClass}
-                            >
-                                Experiencies
-                            </a>
-                            <div
-                                id="experiences-box"
-                                style={{
-                                    display: isExperiencesVisible
-                                        ? "flex"
-                                        : "none",
-                                }}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                {experiences.map((experience) => (
-                                    <div
-                                        className="experience-in-box"
-                                        key={experience.pack_id}
-                                    >
-                                        <a
-                                            onClick={() =>
-                                                handleChangePage(
-                                                    "singleExperience"
-                                                )
-                                            }
-                                            className={navbarClass}
+        <>
+            <div className="navbar" style={navbarStyle}>
+                <nav>
+                    <div className="left-bar">
+                        <a onClick={() => handleChangePage("home")}>
+                            <img src="/images/logotemporal.png" alt="Logo" />
+                        </a>
+                        <ul>
+                            <li>
+                                <a className={navbarClass}>About Us</a>
+                            </li>
+                            <li>
+                                <a className={navbarClass}>Basque Country</a>
+                            </li>
+                            <li>
+                                <a
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                    onClick={() =>
+                                        handleChangePage("experiences")
+                                    }
+                                    className={navbarClass}
+                                >
+                                    Experiencies
+                                </a>
+                                <div
+                                    id="experiences-box"
+                                    style={{
+                                        display: isExperiencesVisible
+                                            ? "flex"
+                                            : "none",
+                                    }}
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    {experiences.map((experience) => (
+                                        <div
+                                            className="experience-in-box"
+                                            key={experience.pack_id}
                                         >
-                                            {experience.name}
-                                        </a>
-                                    </div>
-                                ))}
-                            </div>
-                        </li>
-                        <li>
-                            <a
-                                onClick={() => handleChangePage("stories")}
-                                className={navbarClass}
-                            >
-                                Stories
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                onClick={() => handleChangePage("contact")}
-                                className={navbarClass}
-                            >
-                                Contact
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="right-bar">
-                    <ul>
-                        <li>
-                            <a
-                                onClick={() =>
-                                    handleChangePage("clientProfile")
-                                }
-                                className={navbarClass}
-                            >
-                                <PersonOutlineOutlinedIcon />
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                onClick={() =>
-                                    handleChangePage("favoritesPage")
-                                }
-                                className={navbarClass}
-                            >
-                                <FavoriteBorderOutlinedIcon />
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div></div>
-        </div>
+                                            <a
+                                                onClick={() =>
+                                                    handleChangePage(
+                                                        "singleExperience"
+                                                    )
+                                                }
+                                                className={navbarClass}
+                                            >
+                                                {experience.name}
+                                            </a>
+                                        </div>
+                                    ))}
+                                </div>
+                            </li>
+                            <li>
+                                <a
+                                    onClick={() => handleChangePage("stories")}
+                                    className={navbarClass}
+                                >
+                                    Stories
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    onClick={() => handleChangePage("contact")}
+                                    className={navbarClass}
+                                >
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="right-bar">
+                        <ul>
+                            <li>
+                                <a
+                                    onClick={() =>
+                                        handleChangePage("clientProfile")
+                                    }
+                                    className={navbarClass}
+                                >
+                                    <PersonOutlineOutlinedIcon />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    onClick={() =>
+                                        handleChangePage("favoritesPage")
+                                    }
+                                    className={navbarClass}
+                                >
+                                    <FavoriteBorderOutlinedIcon />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div></div>
+            </div>
+            <div className="navbar-responsive">
+                <nav>
+                    <div className="left-bar">
+                        <DragHandleIcon fontSize="large" />
+                    </div>
+                    <div className="center-bar">
+                        <a onClick={() => handleChangePage("home")}>
+                            <img src="/images/logotemporal.png" alt="Logo" />
+                        </a>
+                    </div>
+                    <div className="right-bar">
+                        <ul>
+                            <li>
+                                <a
+                                    onClick={() =>
+                                        handleChangePage("clientProfile")
+                                    }
+                                    className={navbarClass}
+                                >
+                                    <PersonOutlineOutlinedIcon />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    onClick={() =>
+                                        handleChangePage("favoritesPage")
+                                    }
+                                    className={navbarClass}
+                                >
+                                    <FavoriteBorderOutlinedIcon />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div
+                className={
+                    isActive
+                        ? "navbar-responsive-menu active-menu"
+                        : "navbar-responsive-menu"
+                }
+            >
+                <ul>
+                    <li>
+                        <Button>
+                            About Us
+                            <NavigateNextOutlinedIcon fontSize="large" />
+                        </Button>
+                    </li>
+                    <li>
+                        <Button>
+                            Basque Country
+                            <NavigateNextOutlinedIcon fontSize="large" />
+                        </Button>
+                    </li>
+                    <li>
+                        <Button onClick={() => handleChangePage("experiences")}>
+                            Experiencies
+                            <NavigateNextOutlinedIcon fontSize="large" />
+                        </Button>
+                    </li>
+                    <li>
+                        <Button onClick={() => handleChangePage("stories")}>
+                            Stories
+                            <NavigateNextOutlinedIcon fontSize="large" />
+                        </Button>
+                    </li>
+                    <li>
+                        <Button onClick={() => handleChangePage("contact")}>
+                            Contact
+                            <NavigateNextOutlinedIcon fontSize="large" />
+                        </Button>
+                    </li>
+                </ul>
+            </div>
+            <div className="navbar-responsive-space">
+                <Button
+                    className={isActive ? "active-menu" : ""}
+                    onClick={handleToggle}
+                >
+                    <DragHandleIcon fontSize="large" />
+                </Button>
+            </div>
+        </>
     );
 }
 
