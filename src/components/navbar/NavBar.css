@@ -144,7 +144,6 @@
     top: 0;
     left: 0;
     z-index: 100;
-    width: 100%;
     height: 10%;
     transition: none;
     text-align: center;
@@ -156,6 +155,7 @@
     background-color: var(--color-navBar);
     border-bottom: 2px solid white;
     backdrop-filter: blur(5px);
+    width: 100%;
 }
 
 .navbar-responsive nav {
@@ -166,11 +166,30 @@
     visibility: hidden;
 }
 
+.navbar-responsive .center-bar {
+    align-items: center;
+}
+
 .navbar-responsive .right-bar ul {
     gap: 5px;
 }
 
+.navbar-responsive button {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    width: auto;
+    height: 100%;
+    color: var(--color-2);
+}
 
+.navbar-responsive button img {
+    height: 100%;
+}
+
+.navbar-responsive button:hover {
+    color: var(--color-1);
+}
 
 .navbar-responsive-menu {
     display: none;
@@ -178,7 +197,7 @@
     position: fixed;
     top: 0;
     left: -100%;
-    z-index: 100;
+    z-index: 120;
     width: 80vw;
     height: 90vh;
     background-color: var(--color-2);
@@ -193,7 +212,7 @@
     left: 0;
 }
 
-.navbar-responsive-menu ul {
+.navbar-responsive-menu nav {
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -222,6 +241,7 @@
     z-index: 120;
     justify-content: start;
     align-items: center;
+    width: auto;
 }
 
 .navbar-responsive-space button {
@@ -241,6 +261,23 @@
 button.active-menu,
 button.active-menu:hover {
     color: var(--color-3);
+}
+
+.navbar-menu-back-close {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    pointer-events: none;
+    transition: background-color 0.5s ease-in-out;
+    z-index: 110;
+}
+
+.navbar-menu-back-close.active-menu {
+    background-color: rgba(0, 0, 0, 0.8);
+    pointer-events: all;
 }
 
 /*Media querie*/

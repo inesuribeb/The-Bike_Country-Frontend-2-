@@ -206,31 +206,31 @@ function NavBar({ changeBackgroundColor = false }) {
                         <DragHandleIcon fontSize="large" />
                     </div>
                     <div className="center-bar">
-                        <a onClick={() => handleChangePage("home")}>
+                        <Button onClick={() => handleChangePage("home")}>
                             <img src="/images/logotemporal.png" alt="Logo" />
-                        </a>
+                        </Button>
                     </div>
                     <div className="right-bar">
                         <ul>
                             <li>
-                                <a
+                                <Button
                                     onClick={() =>
                                         handleChangePage("clientProfile")
                                     }
                                     className={navbarClass}
                                 >
                                     <PersonOutlineOutlinedIcon />
-                                </a>
+                                </Button>
                             </li>
                             <li>
-                                <a
+                                <Button
                                     onClick={() =>
                                         handleChangePage("favoritesPage")
                                     }
                                     className={navbarClass}
                                 >
                                     <FavoriteBorderOutlinedIcon />
-                                </a>
+                                </Button>
                             </li>
                         </ul>
                     </div>
@@ -239,42 +239,54 @@ function NavBar({ changeBackgroundColor = false }) {
             <div
                 className={
                     isActive
+                        ? "navbar-menu-back-close active-menu"
+                        : "navbar-menu-back-close"
+                }
+                onClick={handleToggle}
+            ></div>
+            <div
+                className={
+                    isActive
                         ? "navbar-responsive-menu active-menu"
                         : "navbar-responsive-menu"
                 }
             >
-                <ul>
-                    <li>
-                        <Button>
-                            About Us
-                            <NavigateNextOutlinedIcon fontSize="large" />
-                        </Button>
-                    </li>
-                    <li>
-                        <Button>
-                            Basque Country
-                            <NavigateNextOutlinedIcon fontSize="large" />
-                        </Button>
-                    </li>
-                    <li>
-                        <Button onClick={() => handleChangePage("experiences")}>
-                            Experiencies
-                            <NavigateNextOutlinedIcon fontSize="large" />
-                        </Button>
-                    </li>
-                    <li>
-                        <Button onClick={() => handleChangePage("stories")}>
-                            Stories
-                            <NavigateNextOutlinedIcon fontSize="large" />
-                        </Button>
-                    </li>
-                    <li>
-                        <Button onClick={() => handleChangePage("contact")}>
-                            Contact
-                            <NavigateNextOutlinedIcon fontSize="large" />
-                        </Button>
-                    </li>
-                </ul>
+                <nav>
+                    <ul>
+                        <li>
+                            <Button>
+                                About Us
+                                <NavigateNextOutlinedIcon fontSize="large" />
+                            </Button>
+                        </li>
+                        <li>
+                            <Button>
+                                Basque Country
+                                <NavigateNextOutlinedIcon fontSize="large" />
+                            </Button>
+                        </li>
+                        <li>
+                            <Button
+                                onClick={() => handleChangePage("experiences")}
+                            >
+                                Experiencies
+                                <NavigateNextOutlinedIcon fontSize="large" />
+                            </Button>
+                        </li>
+                        <li>
+                            <Button onClick={() => handleChangePage("stories")}>
+                                Stories
+                                <NavigateNextOutlinedIcon fontSize="large" />
+                            </Button>
+                        </li>
+                        <li>
+                            <Button onClick={() => handleChangePage("contact")}>
+                                Contact
+                                <NavigateNextOutlinedIcon fontSize="large" />
+                            </Button>
+                        </li>
+                    </ul>
+                </nav>
             </div>
             <div className="navbar-responsive-space">
                 <Button
