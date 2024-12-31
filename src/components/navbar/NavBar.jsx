@@ -3,10 +3,13 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import DragHandleIcon from "@mui/icons-material/DragHandle";
 import NavigateNextOutlinedIcon from "@mui/icons-material/NavigateNextOutlined";
+import NavigateBeforeOutlinedIcon from "@mui/icons-material/NavigateBeforeOutlined";
 import Button from "../button/Button";
 import React, { useState, useEffect, useContext } from "react";
 import { PageContext } from "../../utils/js/context/PageContext.js";
 import { obtenerPacks } from "../../utils/js/apiCallController.js";
+import ExperiencesPreview from "./Preview/ExperiencesPreview";
+import StoriesPreview from "./Preview/StoriesPreview";
 function NavBar({ changeBackgroundColor = false }) {
     const maxHeight = 200;
     const minHeight = 100;
@@ -21,7 +24,8 @@ function NavBar({ changeBackgroundColor = false }) {
 
     const [isExperiencesVisible, setIsExperiencesVisible] = useState(false);
     const { setPage } = useContext(PageContext);
-
+    const [isPreviewOpen, setPreviewOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("experiences");
     const handleScroll = () => {
         const viewportHeight = window.innerHeight;
         const threshold = viewportHeight * 0.9;
@@ -77,7 +81,38 @@ function NavBar({ changeBackgroundColor = false }) {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
-
+    const renderContent = () => {
+        switch (selectedOption) {
+            case "experiences":
+                return (
+                    <ExperiencesPreview
+                        onNavigate={handleChangePage}
+                        onClose={() => handleClosePreview()}
+                    />
+                );
+            case "stories":
+                return (
+                    <StoriesPreview
+                        onNavigate={handleChangePage}
+                        onClose={() => handleClosePreview()}
+                    />
+                );
+            case "contact":
+                return (
+                    <ExperiencesPreview
+                        onNavigate={handleChangePage}
+                        onClose={() => handleClosePreview()}
+                    />
+                );
+            default:
+                return (
+                    <ExperiencesPreview
+                        onNavigate={handleChangePage}
+                        onClose={() => handleClosePreview()}
+                    />
+                );
+        }
+    };
     let hoverTimeout;
 
     const handleMouseEnter = () => {
@@ -93,12 +128,21 @@ function NavBar({ changeBackgroundColor = false }) {
 
     const handleChangePage = (pageName) => {
         setPage(pageName);
+        if (isPreviewOpen) handleClosePreview();
+        handleToggle();
     };
 
     const [isActive, setIsActive] = useState(false);
 
     const handleToggle = () => {
         setIsActive((isActive) => !isActive);
+    };
+    const handleOpenPreview = (previewId) => {
+        setSelectedOption(previewId);
+        setPreviewOpen((prev) => !prev);
+    };
+    const handleClosePreview = () => {
+        setPreviewOpen(false);
     };
     return (
         <>
@@ -267,26 +311,36 @@ function NavBar({ changeBackgroundColor = false }) {
                         </li>
                         <li>
                             <Button
-                                onClick={() => handleChangePage("experiences")}
+                                // onClick={() => handleChangePage("experiences")}
+                                onClick={() => handleOpenPreview("experiences")}
                             >
                                 Experiencies
                                 <NavigateNextOutlinedIcon fontSize="large" />
                             </Button>
                         </li>
                         <li>
-                            <Button onClick={() => handleChangePage("stories")}>
+                            <Button
+                                // onClick={() => handleChangePage("stories")}
+                                onClick={() => handleOpenPreview("stories")}
+                            >
                                 Stories
                                 <NavigateNextOutlinedIcon fontSize="large" />
                             </Button>
                         </li>
                         <li>
-                            <Button onClick={() => handleChangePage("contact")}>
+                            <Button
+                                // onClick={() => handleChangePage("contact")}
+                                onClick={() => handleOpenPreview("contact")}
+                            >
                                 Contact
                                 <NavigateNextOutlinedIcon fontSize="large" />
                             </Button>
                         </li>
                     </ul>
                 </nav>
+                <div className={isPreviewOpen ? "content active" : "content"}>
+                    {renderContent()}
+                </div>
             </div>
             <div className="navbar-responsive-space">
                 <Button
